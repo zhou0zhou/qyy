@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>后台管理</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+  <style>
+    .manaCon{
+      background-color: #2cc9cf;
+      border: none;
+      color: white;
+      width: 138px;
+      height: 34px;
+      font-size: 20px;
+      font-family: fangsong;
+    }
+  </style>
+
+</head>
+<body>
+<div id="wrap" style="width: 820px;"  >
+  <div id="top_content">
+    <div id="header">
+      <div id="rightheader">
+        <p>
+          2023
+          <br />
+        </p>
+      </div>
+      <div id="topheader">
+        <h1 id="title">
+          <a href="#">趣悠游——年轻人的兴趣交流平台</a>
+        </h1>
+      </div>
+      <div id="navigation">
+      </div>
+    </div>
+    <div id="content">
+      <p id="whereami">
+      </p>
+      <h1>后台管理</h1>
+      <div style="width: 52%;margin: 0 auto;margin-top: 55px;">
+        <button class="manaCon"  onclick="location.href='/managetopic/findAll'">话题管理</button>
+        <button class="manaCon" onclick="location.href='/manageuser/findAll'" style="float:right;" >用户信息管理</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

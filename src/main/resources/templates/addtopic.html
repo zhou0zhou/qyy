@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>添加话题</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+  <style>
+
+    input{
+      color: gray;
+    }
+
+
+  </style>
+</head>
+<body style="display: flex; justify-content: center; align-items: center;">
+<div id="wrap"  style="width: 820px;">
+  <div id="top_content">
+    <div id="header">
+      <div id="rightheader">
+        <p>2023<br /></p>
+      </div>
+      <div id="topheader">
+        <h1 id="title"><a href="#">添加话题</a></h1>
+      </div>
+      <div id="navigation"></div>
+    </div>
+    <div id="content" style="height: 350px;">
+      <p id="whereami"></p>
+      <h1>添加话题信息</h1>
+
+      <form th:action="@{/user/goHome}" method="get">
+        <input type="submit" class="button" value="返回主页 &raquo;"  style="cursor: pointer;border: none;background-color: #2c7ccf;border: none;color: white;width: 85px;height: 29px;font-size: 20px;font-family: fangsong;float: right;border-radius: 5px;margin-top: -35px;"  />
+      </form>
+
+      <form th:action="@{/managetopic/save}" method="post">
+        <table cellpadding="0" cellspacing="0" border="0" class="form_table" style="margin: 0 auto;" >
+          <tr>
+            <td valign="middle" align="right">标题</td>
+            <td valign="middle" align="left"><input type="text" class="inputgri" name="topic_title" style="background-color: rgba(0, 0, 0, 0);" /></td>
+          </tr>
+          <tr>
+            <td valign="middle" align="right">内容</td>
+            <td valign="middle" align="left"><input type="text" class="inputgri" name="topic_content" value="内容内容" style="background-color: rgba(0, 0, 0, 0);" /></td>
+          </tr>
+          <tr>
+            <td valign="middle" align="right">点赞数</td>
+            <td valign="middle" align="left"><input type="text" class="inputgri" name="topic_likes" value="0" style="background-color: rgba(0, 0, 0, 0);" /></td>
+          </tr>
+          <tr>
+            <td valign="middle" align="right">发布者账号</td>
+            <td valign="middle" align="left"><input type="text" class="inputgri" name="publisher_account" value="kkwwoo" style="background-color: rgba(0, 0, 0, 0);" /></td>
+          </tr>
+          <tr>
+            <td valign="middle" align="right">话题发布时间</td>
+            <td valign="middle" align="left"><input type="text" class="inputgri" name="publish_time" value="2023-07-03 00:00:00" style="background-color: rgba(0, 0, 0, 0);" /></td>
+          </tr>
+          <tr>
+            <td valign="middle" align="right">趣点名</td>
+            <td valign="middle" align="left"><input type="text" class="inputgri" name="poi_name" value="游戏" style="background-color: rgba(0, 0, 0, 0);" /></td>
+          </tr>
+        </table>
+        <p  style=" text-align: center;margin-top: 20px;" ><input type="submit" class="button" value="确定"  style=" cursor: pointer;border: none;background-color: #2cc9cf;border: none;color: white;width: 138px;height: 34px;font-size: 20px;font-family: fangsong;" /></p>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

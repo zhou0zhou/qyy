@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+    <script>
+
+        function getSearch(arg)//从Location中提取表单状态信息，来自于父窗体jsAddRec() jsModdRec()函数
+        {
+            var status = new Array();
+            var result = "";
+            status = window.location.search.substring(1).split("&");
+            for (i = 0; i < status.length; i++) {
+                if (status[i].indexOf(arg) != -1)
+                    result = status[i].substring(status[i].indexOf(arg) + arg.length + 1, status[i].length);
+            }
+            return (result);
+        }
+
+        function  init(){
+            var curStatus = getSearch("sign");
+            if(curStatus=="loginFailed"){
+                document.getElementById("tips").innerHTML="用户名或密码错误，请重试！";
+            }
+
+
+        }
+        var info='';
+        //alert(info);
+    </script>
+
+</head>
+<body onload="init()" style="display: flex; justify-content: center; align-items: center;">
+<div id="wrap">
+    <div id="top_content">
+        <div id="header">
+            <div id="rightheader">
+                <p style = "color: #117fcd">
+                    2023
+                    <br />
+                </p>
+            </div>
+            <div id="topheader">
+                <h1 id="title" >
+                    <a href="#" style = "color: #117fcd" >趣悠游——年轻人的兴趣交流平台</a>
+                </h1>
+            </div>
+            <div id="navigation">
+            </div>
+        </div>
+        <div id="content" style="height: 320px">
+            <p id="whereami">
+            </p>
+            <!--<h1>登录页面</h1>-->
+            <form th:action="@{/user/login}" method="post" style="display: flex" >
+
+                <div id="register">
+
+                    <table class="form_table1"  style="    width: 411px" >
+                        <tr>
+                            <td valign="middle" align="right" style="font-size: 16px;font-weight: bold;" >
+<!--                                还没账号？-->
+                            </td>
+                            <td valign="middle" align="left">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" align="right">
+
+                            </td>
+                            <td valign="middle" align="left">
+
+                                <input type="button"  style="    cursor: pointer;margin-left: 128px;margin-top: 56px;" id="registerButton"   class="button" onclick="location.href='/toManage'" value="后台管理 &raquo;" />
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="middle" align="right">
+
+                            </td>
+                            <td valign="middle" align="left">
+
+                            </td>
+                        </tr>
+
+
+
+                    </table>
+
+                </div>
+
+                <table class="form_table">
+                    <tr>
+                        <td valign="middle" align="right"  style="    font-size: 24px;padding: inherit;font-weight: 700;" >
+                            登录
+                        </td>
+                        <td valign="middle" align="left">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right"  class="temp0" style="color: gray;" >
+                            账号:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" style="background-color: rgba(0, 0, 0, 0);" class="inputgri" name="account" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right" class="temp0"  style="color: gray;" >
+                            密码:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text"  style="background-color: rgba(0, 0, 0, 0);" class="inputgri" name="password" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td valign="middle" align="right">
+
+                        </td>
+                        <td valign="middle" align="left"  style="display: flex" >
+                           <div> <input type="button" style="cursor: pointer;border: none;color: gray" class="button" onclick="location.href='/toForgetpassword'" value="忘记密码 &raquo;" /> <br/> <input type="button"   style="border: none;color: gray;cursor: pointer" class="button" onclick="location.href='/toRegister'" value="注册 &raquo;" />        </div>   <input type="submit" class="button"  style="    font-size: 16px;border: none;float: right;background-color: #117fcd;color: white;width: 72px;cursor: pointer;border-radius: 10px;margin-left: 28px;" value="登录 &raquo;" />
+                        </td>
+                    </tr>
+
+                </table>
+
+
+
+            </form>
+
+            <br/>
+            <div id="tips" style="text-align: center;color: red" ></div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

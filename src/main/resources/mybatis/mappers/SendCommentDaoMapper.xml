@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccnu.dao.SendCommentDao">
+<insert id="send" parameterType="com.ccnu.entity.Comment">
+    insert into comment (comment_topictitle,comment_content,comment_account) values (#{title},#{content},#{account})
+</insert>
+
+    <select id="allcomment" resultType="com.ccnu.entity.Comment">
+        select comment_content,comment_account from comment where comment_topictitle=#{title}
+    </select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccnu.dao.SendTopicDao">
+    <!--发布帖子    -->
+    <insert id="publish" parameterType="com.ccnu.entity.Topic">
+        insert into topic (topic_title,topic_content,publisher_account,publish_time,poi_name) values (#{title},#{content},#{account},NOW(),#{name})
+    </insert>
+
+    <!-- 查询所有Topic -->
+    <select id="findmyAll" resultType="com.ccnu.entity.Topic">
+        SELECT topic_title, topic_content, topic_likes, publisher_account, publish_time, poi_name FROM topic WHERE publisher_account=#{account}
+    </select>
+
+    <update id="likes" parameterType="com.ccnu.entity.Comment">
+        update topic set topic_likes=#{likes} where topic_title=#{title}
+    </update>
+</mapper>

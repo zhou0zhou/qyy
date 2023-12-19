@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>发布话题</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div id="wrap"  style="width: 1020px;margin-top: -195px;margin-left: -500px;" >
+    <div id="top_content">
+        <div id="header">
+            <div id="rightheader">
+                <p>
+                    2023
+                    <br />
+                </p>
+            </div>
+            <div id="topheader">
+                <h1 id="title">
+                    <a href="#">趣悠游——年轻人的兴趣交流平台</a>
+                </h1>
+            </div>
+            <div id="navigation">
+            </div>
+        </div>
+        <div id="content" style="height: 600px;">
+            <p id="whereami">
+            </p>
+            <h1>
+                欢迎用户  <span th:text="${session.user.account}"/>!
+                <!--	默认取request域，需要从哪个域中取则需要指明-->
+            </h1>
+
+            <form th:action="@{/user/goHome}" method="get">
+                <input type="submit" class="button" value="返回主页 &raquo;"  style="cursor: pointer;border: none;background-color: #2c7ccf;border: none;color: white;width: 85px;height: 29px;font-size: 20px;font-family: fangsong;float: right;border-radius: 5px;margin-top: -35px;"  />
+            </form>
+
+
+            <form th:action="@{/sendtopic/t2}" method="post">
+                <input type="submit" value="我的话题"  style=" cursor: pointer;border: none;background-color: #2cc9cf;border: none;color: white;width: 138px;height: 34px;font-size: 20px;font-family: fangsong;"  >
+            </form>
+            <form th:action="@{/sendtopic/t1}" method="post"  style="margin-top: 32px;font-size: 18px;text-align: center;" >
+                <div>标题： <input class="inputgri" type="text" name="title" style="background-color: rgba(0, 0, 0, 0);" > </div> <br/>
+
+                <div>内容： <input class="inputgri" type="text" name="content"  style="background-color: rgba(0, 0, 0, 0);height: 95px;" > </div> <br/>
+                <div>趣点： <input class="inputgri" type="text" name="name" style="background-color: rgba(0, 0, 0, 0);height: 95px;" > </div><br/>
+                <input type="submit" value="发布" style=" cursor: pointer;border: none;background-color: #2cc9cf;border: none;color: white;width: 72px; height: 27px;font-size: 20px;font-family: fangsong;border-radius: 8px;"  >
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

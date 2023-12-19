@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>我的关注</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<!--    <script src="https://cdn.jsdelivr.net/npm/jquery"></script>-->
+<!--    <script type="text/javascript"></script>-->
+<!--    <script th:inline="javascript">-->
+<!--        function a(){-->
+<!--            $.ajax({-->
+<!--                url:"/follower/f4",-->
+<!--                method:"POST",-->
+<!--                data:{-->
+<!--                    "account2":$("#add").val()-->
+<!--                },-->
+<!--                success: function(response) {-->
+<!--                    if(response=="false"){-->
+<!--                        alert('找不到该用户！')-->
+<!--                    }if(response=="had"){-->
+<!--                        alert('已关注该用户!')-->
+<!--                    }-->
+<!--                    else{-->
+<!--                        alert('关注成功')-->
+<!--                        $("#new tbody").append(response);-->
+<!--                    }-->
+<!--                },-->
+<!--                error:function(response){-->
+<!--                    alert('数据请求失败!');-->
+<!--                },-->
+<!--            })-->
+<!--        }-->
+<!--        function b(){-->
+<!--            $.ajax({-->
+<!--                url:"/follower/f5",-->
+<!--                method: "POST",-->
+<!--                data:{-->
+<!--                    "account2":$("#del").val()-->
+<!--                },-->
+<!--                success:function (response) {-->
+<!--                    if(response=="false"){-->
+<!--                        alert('您未关注该用户！');-->
+<!--                    }else {-->
+<!--                        alert('删除成功')-->
+<!--                        $("#new").html(response);-->
+<!--                    }-->
+<!--                }-->
+<!--            })-->
+<!--        }-->
+<!--        function clearInput() {-->
+<!--            document.getElementById("add").value = "";-->
+<!--        }-->
+<!--        function ClearInput() {-->
+<!--            document.getElementById("del").value = "";-->
+<!--        }-->
+<!--    </script>-->
+</head>
+<body>
+<div id="wrap"  style="width: 820px;" >
+    <div id="top_content">
+        <div id="header">
+            <div id="rightheader">
+                <p>
+                    2023
+                    <br />
+                </p>
+            </div>
+            <div id="topheader">
+                <h1 id="title">
+                    <a href="#">我的关注</a>
+                </h1>
+            </div>
+            <div id="navigation">
+            </div>
+        </div>
+        <div id="content" style="height: 500px">
+            <p id="whereami">
+            </p>
+            <h1>
+                欢迎进入我的关注界面!
+                <!-- 默认取request域，需要从哪个域中取则需要指明 -->
+            </h1>
+            <form th:action="@{/user/goHome}" method="get">
+                <input type="submit" class="button" value="返回主页 &raquo;"  style="cursor: pointer;border: none;background-color: #2c7ccf;border: none;color: white;width: 85px;height: 29px;font-size: 20px;font-family: fangsong;float: right;border-radius: 5px;margin-top: -35px;"  />
+            </form>
+            <div style="text-align: center;">
+
+                <form th:action="@{/follower/f2}" method="post" style="font-size: 16px;">
+                    输入账号:   <input class="inputgri" type="text"  name="account2" style="background-color: rgba(0, 0, 0, 0);"  >
+                    <input  value="添加关注" type="submit" style=" cursor: pointer;border: none;background-color: #2cc9cf;border: none;color: white;width: 91px;height: 25px;font-size: 20px;font-family: fangsong;border-radius: 8px;" >
+                </form>
+<!--                输入账号:   <input id="add" type="text"  name="account2" ><span id="tea"></span>-->
+<!--                <input value="添加关注" type="button" onclick="a();clearInput()">-->
+
+                <form th:action="@{/follower/f3}" method="post" style="font-size: 16px;">
+                    输入账号:   <input class="inputgri" type="text"  name="account2" style="background-color: rgba(0, 0, 0, 0);" >
+                    <input value="删除关注" type="submit" style=" cursor: pointer;border: none;background-color: #2cc9cf;border: none;color: white;width: 91px;height: 25px;font-size: 20px;font-family: fangsong;border-radius: 8px;" >
+                </form>
+<!--                输入账号:   <input id="del" type="text"  name="account2">-->
+<!--                <input value="删除关注" type="button" onclick="b();ClearInput()">-->
+
+            </div>
+
+            <table class="table">
+                <tr class="table_header">
+                    <td>
+                        我的关注
+                    </td>
+                </tr>
+<!--                <tr th:class="${followerStat.odd}?'row1':'row2'" th:each="follower,followerStat:${message}">-->
+<!--                    <td>-->
+<!--                        <span th:text="${follower.followeraccount}"/>-->
+<!--                    </td>-->
+
+<!--                </tr>-->
+
+
+                <br>
+                <br>
+
+            </table>
+
+            <h th:utext="${message}"></h>
+
+<!--            <table id="new">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>name</th>-->
+<!--                    &lt;!&ndash;                    <th>列2标题</th>&ndash;&gt;-->
+<!--                    <th></th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody >-->
+<!--                <tr  th:each="follower: ${message}">-->
+<!--                    <td style='border-bottom: 1px dashed;font-family: fangsong;font-size: 16px;margin-top: 14px;'>-->
+<!--                        <span  id="old" th:text="${follower.followeraccount}"></span>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--            <span id="ol"></span>-->
+        </div>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+</body>
+</html>
+
+
+

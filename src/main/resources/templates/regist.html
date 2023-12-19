@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>注册用户</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+    <style>
+        input{
+            color: gray;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="wrap"  style="width: 820px;" >
+    <div id="top_content">
+        <div id="header">
+            <div id="rightheader">
+                <p>
+                    2023
+                    <br />
+                </p>
+            </div>
+            <div id="topheader">
+                <h1 id="title">
+                    <a href="#">趣悠游——年轻人的兴趣交流平台</a>
+                </h1>
+            </div>
+            <div id="navigation">
+            </div>
+        </div>
+        <div id="content" style="height: 550px;" >
+            <p id="whereami">
+            </p>
+            <h1>注册页面</h1>
+            <form th:action="@{/user/register}" method="post">
+                <table border="0" class="form_table"  style="color: gray;font-size: 18px;margin: 0 auto;" >
+                    <tr>
+                        <td valign="middle" align="right">
+                            用户名:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="account" style="background-color: rgba(0, 0, 0, 0);"  />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            密码:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="password" style="background-color: rgba(0, 0, 0, 0);" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            性别:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="sex" value="男" style="background-color: rgba(0, 0, 0, 0);" /> <!-- 设置默认值为"男" -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            昵称:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="nickname" value="John Doe" style="background-color: rgba(0, 0, 0, 0);" /> <!-- 设置默认值为"John Doe" -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            图片:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="file" id="picture" name="picture" style="background-color: rgba(0, 0, 0, 0);font-style: italic;color: red;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            地址:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="address" value="北京市" style="background-color: rgba(0, 0, 0, 0);" /> <!-- 设置默认值为"北京市" -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            个人介绍:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="introduction" value="我是一个新用户" style="background-color: rgba(0, 0, 0, 0);color: gray" /> <!-- 设置默认值为"我是一个新用户" -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign="middle" align="right">
+                            你最喜欢的数字<br/>是？（用于找回密码）:
+                        </td>
+                        <td valign="middle" align="left">
+                            <input type="text" class="inputgri" name="security_answer" value="1024"  style="background-color: rgba(0, 0, 0, 0);" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="提交 »"   style="cursor: pointer;background-color: #2cc9cf;border: none;width: 105px;height: 36px;border-radius: 11px;font-size: 18px;color: white;" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+</body>
+</html>

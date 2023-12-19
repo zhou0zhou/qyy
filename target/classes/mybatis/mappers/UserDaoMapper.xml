@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccnu.dao.UserDao">
+
+<!--  void save(User user);
+    注册
+-->
+    <insert id="save" parameterType="com.ccnu.entity.User">
+        insert into user(account,password,sex,nickname,picture,address,introduction,security_answer)
+        values (#{account}, #{password}, #{sex}, #{nickname}, #{picture}, #{address}, #{introduction}, #{security_answer})
+    </insert>
+
+<!--      User login(@Param("account") String account, @Param("password") String password);
+    登陆
+  -->
+    <select id="login" resultType="com.ccnu.entity.User">
+        select account,password,sex,nickname,picture,address,introduction,security_answer from user
+        where account=#{account} and password=#{password}
+    </select>
+<!--
+    找回密码
+-->
+    <select id="forgetpassword" resultType="com.ccnu.entity.User">
+        select account,password,sex,nickname,picture,address,introduction,security_answer from user
+        where account=#{account} and security_answer=#{security_answer}
+    </select>
+    <!--
+    void updatePassword(User user);
+    更新密码
+-->
+    <update id="updatePassword" parameterType="com.ccnu.entity.User">
+        update user
+        set password = #{password}
+        where account = #{account}
+    </update>
+
+    <select id="personalcenter" resultType="com.ccnu.entity.User">
+        select account,password,sex,nickname,picture,address,introduction,security_answer from user
+        where account=#{account}
+    </select>
+
+    <!--  User find(Integer userId);
+            根据id查询用户信息
+      -->
+    <select id="find" parameterType="String" resultType="com.ccnu.entity.User">
+        select account,password,sex,nickname,picture,address,introduction,security_answer,suggestion from user
+        where account=#{account}
+    </select>
+
+    <!--  void update(User user);
+        更新用户信息
+    -->
+    <update id="update" parameterType="com.ccnu.entity.User">
+        update user
+        set account=#{account}, password=#{password}, sex=#{sex}, nickname=#{nickname}, picture=#{picture}, address=#{address}, introduction=#{introduction}, security_answer=#{security_answer}
+        where account=#{account}
+    </update>
+
+    <select id="feedback" parameterType="String" resultType="com.ccnu.entity.User">
+        select account,password,sex,nickname,picture,address,introduction,security_answer,suggestion from user
+        where account=#{account}
+    </select>
+
+    <update id="update2" parameterType="com.ccnu.entity.User">
+        update user
+        set   account=#{account},suggestion=#{suggestion}
+        where account=#{account}
+    </update>
+
+    <select id="searchfollower" resultType="com.ccnu.entity.User">
+        select account from user where account=#{account2}
+    </select>
+
+    <select id="followermessage" resultType="com.ccnu.entity.User">
+        select account,sex,nickname,address,introduction from user where account=#{account2}
+    </select>
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccnu.dao.ManageUserDao">
+    <!--List<Emp> findAll();
+        查询所有
+        -->
+    <select id="findAll" resultType="com.ccnu.entity.User">
+        select account,password,sex,nickname,picture,address,introduction,security_answer,suggestion from user
+    </select>
+    <!--  void save(User user);
+       保存员工信息
+  -->
+    <insert id="save" parameterType="com.ccnu.entity.User">
+        insert into user(account,password,sex,nickname,picture,address,introduction,security_answer)
+        values (#{account},#{password},#{sex},#{nickname},#{picture},#{address},#{introduction},#{security_answer})
+    </insert>
+
+    <!--  void delete(Integer userId);
+  删除用户
+  -->
+    <delete id="delete" parameterType="String">
+        delete from user where account=#{account}
+    </delete>
+
+    <!--  User find(Integer userId);
+            根据id查询用户信息
+      -->
+    <select id="find" parameterType="String" resultType="com.ccnu.entity.User">
+        select account,password,sex,nickname,picture,address,introduction,security_answer from user
+        where account=#{account}
+    </select>
+
+
+    <!--  void update(User user);
+        更新用户信息
+    -->
+    <update id="update" parameterType="com.ccnu.entity.User">
+        update user
+        set account=#{account}, password=#{password}, sex=#{sex}, nickname=#{nickname}, picture=#{picture}, address=#{address}, introduction=#{introduction}, security_answer=#{security_answer}
+        where account=#{account}
+    </update>
+
+    <update id="update2" parameterType="com.ccnu.entity.User">
+        update user
+        set account=#{account}, password=#{password}, sex=#{sex}, nickname=#{nickname}, picture=#{picture}, address=#{address}, introduction=#{introduction}, security_answer=#{security_answer}
+        where account=#{account}
+    </update>
+
+</mapper>

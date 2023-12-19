@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ccnu.dao.ManageTopicDao">
+
+    <!-- 查询所有Topic -->
+    <select id="findAll" resultType="com.ccnu.entity.Topic">
+        SELECT topic_title, topic_content, topic_likes, publisher_account, publish_time, poi_name FROM topic
+    </select>
+
+    <!-- 保存Topic信息 -->
+    <insert id="save" parameterType="com.ccnu.entity.Topic">
+        INSERT INTO topic (topic_title, topic_content, topic_likes, publisher_account, publish_time, poi_name)
+        VALUES (#{topic_title}, #{topic_content}, #{topic_likes}, #{publisher_account}, #{publish_time}, #{poi_name})
+    </insert>
+
+    <!-- 删除指定topic -->
+    <delete id="delete" parameterType="String">
+        DELETE FROM topic WHERE topic_title=#{topic_title}
+    </delete>
+
+    <!-- 根据topic_title查询Topic信息 -->
+    <select id="find" parameterType="String" resultType="com.ccnu.entity.Topic">
+        SELECT topic_title, topic_content, topic_likes, publisher_account, publish_time, poi_name FROM topic
+        WHERE topic_title=#{topic_title}
+    </select>
+
+    <!-- 更新Topic信息 -->
+    <update id="update" parameterType="com.ccnu.entity.Topic">
+        UPDATE topic SET topic_content=#{topic_content}, topic_likes=#{topic_likes}, publisher_account=#{publisher_account},
+                         publish_time=#{publish_time}, poi_name=#{poi_name}
+        WHERE topic_title=#{topic_title}
+    </update>
+
+</mapper>
